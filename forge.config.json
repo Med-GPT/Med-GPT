@@ -1,0 +1,56 @@
+{
+    "$schema": "!!electron-builder.schema.json",
+    "appId": "com.benz.med-gpt",
+    "productName": "Med-GPT",
+    "copyright": "Copyright © 2025 benzaria, Med-GPT Foundation",
+    "asar": true,
+    "removePackageScripts": true,
+    "removePackageKeywords": false,
+    "directories": {
+        "output": "dist"
+    },
+    "files": [
+        "!node_modules/**/*",
+        "!pnpm-lock.yaml"
+    ],
+    "electronFuses": {
+        "onlyLoadAppFromAsar": true,
+        "enableEmbeddedAsarIntegrityValidation": true
+    },
+    "win": {
+        "target": [
+            {
+                "target": "nsis",
+                "arch": [
+                    "x64",
+                    "ia32",
+                    "arm64"
+                ]
+            }
+        ],
+        "icon": "assets/icon.ico"
+    },
+    "mac": {
+        "target": [
+            {
+                "target": "dmg",
+                "arch": [
+                    "universal"
+                ]
+            }
+        ],
+        "hardenedRuntime": true,
+        "gatekeeperAssess": false,
+        "icon": "assets/icon.icns",
+        "entitlements": "entitlements.mac.plist"
+    },
+    "nsis": {
+        "oneClick": false,
+        "allowToChangeInstallationDirectory": false,
+        "uninstallerIcon": "assets/icon.ico",
+        "installerIcon": "assets/icon.ico",
+        "buildUniversalInstaller": true,
+        "createStartMenuShortcut": true,
+        "createDesktopShortcut": true
+    }
+}

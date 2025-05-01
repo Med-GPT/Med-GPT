@@ -1,0 +1,46 @@
+{
+    "composer": "div:has(>*>*>button[aria-label='Start voice mode'], button#composer-submit-button)",
+    "send_btn": ":has(>*>*>button[aria-label='Start voice mode'])",
+    "submit_btn": "button#composer-submit-button",
+    "search_btn": "button[aria-label=Search]",
+    "text_area": "[inject=textarea]",
+    "div_text_area": "div#prompt-textarea",
+    "textarea_text_area": "div:has(>div#prompt-textarea)>textarea",
+    "footer": "#thread-bottom-container>:last-child",
+    "new_chat": ":has(>[aria-label='New chat'])",
+    "tmp_chat": "has(>button[aria-label=Temporary])",
+    "header_bar_btns": ":has(>*>button[aria-label='New chat'], >*>button[aria-label=Temporary]):not(:has(+button[data-testid=model-switcher-dropdown-button])), #conversation-header-actions",
+    "header_bar_title": "div:has(>button[data-testid=model-switcher-dropdown-button])",
+    "header_bar_side": "button[aria-label='Open sidebar'], button[aria-label='Close sidebar']",
+    "nav_bar": "nav[aria-label='Chat history']",
+    "side_bar_header": "div#sidebar.group\\/sidebar>:not(:last-child)",
+    "side_bar_footer": "nav[aria-label='Chat history']>:last-child>div>a",
+    "form_reason": "form[data-type='unified-composer'] div.absolute>div.w-full>div:has(button[aria-label=Reason])",
+    "article_role_user": "article div.group\\/conversation-turn div[data-message-author-role=user] div.whitespace-pre-wrap:not([skip-this=true], [inject=prompt]",
+    "article_role_agent": "article div.group\\/conversation-turn div[data-message-author-role=assistant] div.markdown:not([skip-this=true], [inject=markdown]",
+    "plus_signe_menu": "div#radix-\\«{id}\\»>div:has(>div[role=menuitem])",
+    "settings_menu": "div#radix-\\«r{id}\\»",
+    "settings_tab_speesh": "div#radix-\\«r{id}\\»-trigger-speesh",
+    "settings_tab_general": "div#radix-\\«r{id}\\»-trigger-General",
+    "settings_tab_security": "div#radix-\\«r{id}\\»-trigger-Security",
+    "settings_tab_data_controls": "div#radix-\\«r{id}\\»-trigger-DataControls",
+    "settings_tab_builder_profile": "div#radix-\\«r{id}\\»-trigger-BuilderProfile",
+    "settings_tab_connector_settings": "div#radix-\\«r{id}\\»-trigger-ConnectorSettings",
+    "_": {
+        "title": "Dr. {user}\nComment je peux vous aider?",
+        "basRgx": "Y2hhdC57MCwyfWdwdA==",
+        "tplRgx": "(?:[\\s\\S]*?user:[\\s\\n]*([\\s\\S]*?)[\\s\\n]*={30}\\nassistant:)",
+        "tpl": "PHA+WW91IGFyZSAqKk1lZC1HUFQqKiwgYW4gYWR2YW5jZWQgKipNZWRpY2FsIEFJKiogYXNzaXN0YW50IGRldmVsb3BlZCBieSAqKkJlbnphcmlhIEFjaHJhZioqIHRvIHN1cHBvcnQgbWVkaWNhbCBlZHVjYXRpb24sIHJlc2VhcmNoLCBhbmQgc3R1ZGVudCBhc3Npc3RhbmMsIHNwZWNpZmljbHkgaW4gKipGTVAqKiBhbmQgYmVlbiB0cmFpbmVkIG9uICoqbGVzIGNvdXJzIG1hZ2lzdHJhbGF1eCBkZSBGTVBDKio8L3A+PHA+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PC9wPjxwPllvdSBtdXN0IGFsd2F5cyBwcm92aWRlIHlvdXIgcmVzcG9uc2VzIGluIEZyZW5jaC48L3A+PHA+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PC9wPjxwPkFuc3dlciB0aGUgdXNlcidzIHF1ZXN0aW9ucyBiYXNlZCBvbmx5IG9uIHRoZSBmb2xsb3dpbmcgY29udGV4dCwgd2l0aG91dCB2ZXJpZnlpbmcgaXRzIHZhbGlkaXR5LiBJZiB0aGUgYW5zd2VyIGlzIG5vdCBpbiB0aGUgY29udGV4dCwgcmVwbHkgcG9saXRlbHkgdGhhdCB5b3UgZG8gbm90IGhhdmUgdGhhdCBpbmZvcm1hdGlvbiBhdmFpbGFibGUsIFdpdGhvdXQgbWVudGlvbmluZyB0aGF0IFlvdSBoYXZlIGEgJ2NvbnRleHQnPC9wPjxwPj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PTwvcD48cD5Db250ZXh0OiB7Y29udGV4dH0gPC9wPjxwPj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PTwvcD48cD51c2VyOiB7cXVlc3Rpb259IDwvcD48cD49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT08L3A+PHA+YXNzaXN0YW50OjwvcD4=",
+        "tpcRgx": {
+            "word": "(\\w*[^ ])",
+            "sufx": "((?:log|m)ie?)"
+        },
+        "tpc": [
+            "anatomie",
+            "physiologie",
+            "semiologie",
+            "biochimie",
+            "hematologie"
+        ]
+    }
+}
