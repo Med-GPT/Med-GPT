@@ -1,0 +1,194 @@
+/* src/app/assets/style.module.css */
+:root {
+    --inject-main-color: hsl(228, 19%, 11%);
+    --inject-scnd-color: hsl(236, 19%, 30%);
+}
+
+& {
+    .draggable {
+        -webkit-app-region: drag;
+
+        * {
+            -webkit-app-region: no-drag;
+        }
+    }
+
+    [inject=sendBtn] {
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+
+    [inject=textarea] {
+        position: relative;
+
+        &:empty,
+        &:has(>br:only-child) {
+            &::before {
+                content: attr(placeholder);
+                display: block;
+                color: #858585;
+                position: absolute;
+                pointer-events: none;
+                transform: translate(1px, 0px);
+            }
+        }
+    }
+
+    [inject=tooltip] {
+        display: none;
+    }
+
+    [inject=controls] {
+        gap: 0.5rem;
+        display: flex;
+        padding: 0.2rem;
+
+        >button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            background-color: var(--color, hsl(0, 0%, 22%));
+
+            &:hover [inject=tooltip] {
+                display: block;
+            }
+
+            &[role=close] {
+                --color: #ff5f57;
+            }
+
+            &[role=maximize] {
+                --color: #28c840;
+            }
+
+            &[role=minimize] {
+                --color: #ffbd2e;
+            }
+        }
+    }
+
+    form[data-type=unified-composer] {
+
+        :has(>*>[aria-label="Start voice mode"]),
+        #prompt-textarea {
+            display: none !important;
+        }
+
+        :has(>*>*>*>[aria-label=Reason]) {
+
+            >* {
+                display: none !important;
+            }
+
+            > :nth-child(1),
+            > :nth-child(2) {
+                display: block !important;
+            }
+        }
+    }
+
+    article {
+        .group\/conversation-turn {
+            &.agent-turn>*>:nth-child(2):not(:first-child) {
+                /* display: none !important; */
+                visibility: hidden !important;
+            }
+
+            [data-message-author-role=user] {
+                .whitespace-pre-wrap:not([inject=prompt]) {
+                    display: none !important;
+                }
+            }
+
+            /* [data-message-author-role=assistant] {
+                .markdown {}
+            } */
+        }
+    }
+
+    nav[aria-label="Chat history"] {
+        > :last-child>*>a {
+            display: none !important;
+        }
+
+        #sidebar.group\/sidebar {
+
+            >* {
+                display: none !important;
+            }
+
+            > :has(>#history) {
+                display: block !important;
+
+                >* {
+                    display: none !important;
+                }
+
+                > :last-child {
+                    display: block !important;
+                    margin-top: 0 !important;
+                }
+            }
+        }
+    }
+
+    #page-header [aria-label="Open conversation options"],
+    [data-testid="share-chat-menu-item"],
+    [aria-label="Share"] {
+        display: none !important;
+    }
+
+    [role=menu] {
+
+        [role=menuitem],
+        [role=separator] {
+            +:not([role=separator], [role=menuitem]) {
+                display: none !important;
+            }
+        }
+
+        :has(>[role=separator]) {
+            [role=separator] {
+                display: none !important;
+            }
+
+            [role=menuitem] {
+                &:not(:last-child) {
+                    display: none !important;
+                }
+            }
+        }
+
+        :not(:has(>[role=separator])) {
+            [role=menuitem] {
+                &:not(:last-child) {
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+    [data-testid=model-switcher-dropdown-button] {
+        display: none !important;
+    }
+
+    :has(>*>[aria-label="New chat"]) {
+        &:not(:has(+[data-testid=model-switcher-dropdown-button], >*>[aria-label="Ctrl K"])) {
+            [aria-label="New chat"] {
+                display: none !important;
+            }
+        }
+    }
+
+    #sidebar-header :has(>*>[aria-label="New chat"]) {
+        >:has(>[aria-label="New chat"]) {
+            display: inline !important;
+
+        }
+    }
+
+    #thread-bottom-container>:last-child {
+        visibility: hidden !important;
+    }
+}

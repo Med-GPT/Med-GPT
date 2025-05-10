@@ -1,0 +1,40 @@
+{
+    "composer": ":has(>*>*>[aria-label='Start voice mode'], #composer-submit-button)",
+    "send_btn": ":has(>*>*>[aria-label='Start voice mode'])",
+    "submit_btn": "#composer-submit-button",
+    "search_btn": "[aria-label=Search]",
+    "text_area": "[inject=textarea]",
+    "div_text_area": "#prompt-textarea",
+    "textarea_text_area": ":has(>#prompt-textarea)>textarea",
+    "footer": "#thread-bottom-container>:last-child",
+    "new_chat": ":has(>[aria-label='New chat'])",
+    "tmp_chat": "has(>[aria-label=Temporary])",
+    "header_bar_btns": ":has(>*>[aria-label='New chat'], >*>[aria-label=Temporary]):not(:has(+[data-testid=model-switcher-dropdown-button])), #conversation-header-actions",
+    "header_bar_title": ":has(>[data-testid=model-switcher-dropdown-button])",
+    "header_bar_side": "[aria-label='Open sidebar'], [aria-label='Close sidebar']",
+    "nav_bar": "nav[aria-label='Chat history']",
+    "side_bar_header": "#sidebar.group\\/sidebar>:not(:last-child)",
+    "side_bar_footer": "nav[aria-label='Chat history']>:last-child>>a",
+    "form_reason": "form[data-type='unified-composer'] .absolute>.w-full>:has([aria-label=Reason])",
+    "article_role_user": "article .group\\/conversation-turn [data-message-author-role=user] .whitespace-pre-wrap:not([skip-this=true], [inject=prompt]",
+    "article_role_agent": "article .group\\/conversation-turn [data-message-author-role=assistant] .markdown:not([skip-this=true], [inject=markdown]",
+    "plus_signe_menu": "#radix-\\«{id}\\»>:has(>[role=menuitem])",
+    "settings_menu": "#radix-\\«r{id}\\»",
+    "_": {
+        "title": "Dr. {user}\nComment je peux vous aider?",
+        "basRgx": "Y2hhdC57MCwyfWdwdA==",
+        "tplRgx": "(?:[\\s\\S]*?user:[\\s\\n]*([\\s\\S]*?)[\\s\\n]*={30}\\nassistant:)",
+        "tpl": "PHA+WW91IGFyZSAqKk1lZC1HUFQqKiwgYW4gYWR2YW5jZWQgKipNZWRpY2FsIEFJKiogYXNzaXN0YW50IGRldmVsb3BlZCBieSAqKkJlbnphcmlhIEFjaHJhZioqIHRvIHN1cHBvcnQgbWVkaWNhbCBlZHVjYXRpb24sIHJlc2VhcmNoLCBhbmQgc3R1ZGVudCBhc3Npc3RhbmMsIHNwZWNpZmljbHkgaW4gKipGTVAqKiBhbmQgYmVlbiB0cmFpbmVkIG9uICoqbGVzIGNvdXJzIG1hZ2lzdHJhbGF1eCBkZSBGTVBDKio8L3A+PHA+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PC9wPjxwPllvdSBtdXN0IGFsd2F5cyBwcm92aWRlIHlvdXIgcmVzcG9uc2VzIGluIEZyZW5jaC48L3A+PHA+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PC9wPjxwPkFuc3dlciB0aGUgdXNlcidzIHF1ZXN0aW9ucyBiYXNlZCBvbmx5IG9uIHRoZSBmb2xsb3dpbmcgY29udGV4dCwgd2l0aG91dCB2ZXJpZnlpbmcgaXRzIHZhbGlkaXR5LiBJZiB0aGUgYW5zd2VyIGlzIG5vdCBpbiB0aGUgY29udGV4dCwgcmVwbHkgcG9saXRlbHkgdGhhdCB5b3UgZG8gbm90IGhhdmUgdGhhdCBpbmZvcm1hdGlvbiBhdmFpbGFibGUsIFdpdGhvdXQgbWVudGlvbmluZyB0aGF0IFlvdSBoYXZlIGEgJ2NvbnRleHQnPC9wPjxwPj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PTwvcD48cD5Db250ZXh0OiB7Y29udGV4dH0gPC9wPjxwPj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PTwvcD48cD51c2VyOiB7cXVlc3Rpb259IDwvcD48cD49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT08L3A+PHA+YXNzaXN0YW50OjwvcD4=",
+        "tpcRgx": {
+            "word": "(\\w*[^ ])",
+            "sufx": "((?:log|m)ie?)"
+        },
+        "tpc": [
+            "anatomie",
+            "physiologie",
+            "semiologie",
+            "biochimie",
+            "hematologie"
+        ]
+    }
+}
