@@ -1,0 +1,31 @@
+import{e as i,f as c,h as m,j as r,k as a}from"./lib/C5AFILMD.js";import{app as f,session as x,nativeTheme as te}from"electron";import{exit as S,stdout as u}from"process";var d={hide:"\x1B[?25l",show:"\x1B[?25h",end:"\x1B[K",start:"\r"},v={moon:"\uE3E3\uE3C8\uE3C9\uE3CA\uE3CB\uE3CC\uE3CD\uE3CE\uE3CF\uE3D0\uE3D1\uE3D2\uE3D3\uE3D4\uE3D5\uE3D6\uE3D7\uE3D8\uE3D9\uE3DA\uE3DB\uE3DC\uE3DD\uE3DE\uE3DF\uE3E0\uE3E1\uE3E2\uE3E3",dots:"\u2847\u280F\u281B\u2839\u28B8\u28F0\u28E4\u28C6",line:"|/\u2500\\"},T={line:["","\u2501","\u2501","\u2501",""],dash:["","\u2501","\u254D","\u2505",""],block:"\u2502\u2588\u2592\u2591\u2502",equal:"[==-]"},O=["uncaughtException","SIGTERM","SIGINT","exit"];var ae={...T},le={...v};var w=u.write.bind(u);w(d.hide);O.forEach(e=>process.on(e,t=>{w(d.show),S(void(t instanceof Error?i(t):0))}));import{promisify as _}from"util";import{inflate as C,deflate as W}from"zlib";Object.assign(globalThis,{__dirname:import.meta.dirname,__filename:import.meta.filename});var k=1,h=["\0","\x1B","","",`\xBENZv${k}`];var ge=Object.fromEntries([0,[W,C]].flatMap((e,t)=>[0,1].map(n=>[""+n+t,e?_(e[n]):s=>s])));var[be,ye,,,E]=h,[Be,xe,Se,ve,Te]=h.map(Buffer.from),Oe=Buffer.alloc(0),_e=new RegExp(`^NZ(\\d{1})[\\s\\S]*?${E.slice(0,-1)}(\\d{1})$`);import{join as $}from"path";var{api:R,app:Ae,version:I}=r,Fe=$(__dirname,"../");async function p(){return(await(await fetch(R)).json()).tag_name!=="v"+I&&i("yes"),!1}p();import{BrowserWindow as P,WebContentsView as V,dialog as A}from"electron";import{join as F}from"path";var{base:g,llms:b,chat:j,redirect:y}=a,M={r:"4o",o:{show:!0,webPreferences:{contextIsolation:!1,nodeIntegration:!1,sandbox:!1,devTools:!1}},a:{webPreferences:{contextIsolation:!1,nodeIntegration:!1,sandbox:!1,devTools:!1}}},L=function(e,t){(this.webContents??this).on(e,t)},N=function(e,t,...n){this.i(e,()=>this.u(t,...n))};async function D(e,...t){await(this.webContents??this).executeJavaScript(typeof e=="string"?e:`(${e.toString()})(${t.join(",")})`)}function U(...e){let t=(n,s,l)=>{this.f++>3&&(A.showMessageBoxSync({type:"error",defaultId:0,cancelId:1,buttons:["Report","Ignore"],title:`Error: at Preload: ${s}`,message:`${l?.message?l.message:l}`})===0?i.wrn(new URL(`report/?error=${l?.message?l.message:l}`,"https://Med-GPT.github.io/")):i.err("closing...")),i.wrn("reloading...")};e.length?t(null,...e):this.i("preload-error",t)}function Z(e=r.name){this.i("page-title-updated",t=>{t.preventDefault(),this.setTitle(e)})}function z(e){(this.webContents??this).setUserAgent(e)}function H(e){(this.webContents??this).session.webRequest.onHeadersReceived((t,n)=>{let{responseHeaders:s}=t;c(s,e),n({responseHeaders:s})})}function K(e){(this.webContents??this).session.webRequest.onBeforeSendHeaders((t,n)=>{let{requestHeaders:s}=t;c(s,e),n({requestHeaders:s})})}function q(e){(this.webContents??this).insertCSS(e)}function G(){(this.webContents??this).reload()}function B(e){let t=M;e&&c(t,e);let n=new V(t.a),s=new P(t.o);return n.webContents.loadFile(F(__dirname,"www/index.html")),s.webContents.loadURL((g&&b[t.r]?g+b[t.r]+j:y?y+"P2Vycm9yPWxsbXMtdW5kZWZpbmVk".e:i.trw("ZW52IHZhcmlhYmxlcyBhcmUgbm90IHNldCBwcm9wZXJseQ==".e)).t),J({win:s,view:n}),{win:s,view:n}}function J(e){Object.entries(e).forEach(([t,n])=>{n.webContents.parentName=t,n.webContents.parentObj=n,Object.assign(n,{i:L,u:D,x:N,n:G,f:0,T:H,E:K,C:q,p:z,g:Z,l:U})})}import{platform as ne}from"process";import{resolve as se}from"path";import{createHash as X}from"crypto";import{readFileSync as Y}from"fs";import{resolve as Q}from"path";var o={"get-file":e=>Y(Q(__dirname,e),"utf8"),"get-hash":e=>X("sha256").update(o["get-file"](e)).digest("hex"),"vrf-hash":(e,t)=>o["get-hash"](e)===t,"inject-css":function(e=r.style){this.insertCSS(o["get-file"](e))},"inject-raw-css":function(e){this.insertCSS(e)},show:function(e){o[`show-${e??this.parentName}`]()},hide:function(e){o[`hide-${e??this.parentName}`]()},reload:function(e){o[`reload-${e??this.parentName}`]()},"reload-all":()=>(win.n(),view.n()),"show-win":()=>win.show(),"hide-win":()=>win.hide(),"reload-win":()=>win.n(),"show-view":()=>(win.View=win.contentView,win.setContentView(view)),"hide-view":()=>win.setContentView(win.View),"reload-view":()=>view.n(),"close-win":()=>win.close(),"minimize-win":()=>win.minimize(),"maximize-win":()=>win.isMaximized()?win.unmaximize():win.maximize(),"preload-status":function(e,...t){(globalThis.S=e==="ok")||this.l(...t)},"load-file":async e=>{let t=await fetch(`${a.git.t}/${e}`);return t.ok||i.trw(`Failed to load ${e.split("/").shift()}: ${t.statusText}`),t.text()}};import{ipcMain as ee}from"electron";Object.entries(o).forEach(([e,t])=>ee.handle(e,(n,...s)=>t.call(n.sender,...s)));Object.assign(globalThis,{__appname:r.name,__dirname:import.meta.dirname,__filename:import.meta.filename});await p();f.whenReady().then(()=>{i("Electron is ready...");let e=se(__dirname,r.preload),t={r:"4o-mini",o:{show:!1,width:1200,height:700,title:__appname,titleBarStyle:"hidden",webPreferences:{session:x.fromPartition(`persist:${a.chat.t}`),preload:e}},a:{webPreferences:{session:x.fromPartition(`persist:${__appname}`)}}};Object.assign(globalThis,B(t)),te.themeSource=m.theme,win.g(),[win,view].forEach(n=>{n.l(),n.p(a.agent.t)})});f.on("window-all-closed",()=>{ne!=="darwin"&&f.quit()});export{f as electron};
+//@ts-nocheck
+/**
+ * [0]: https://github.com/benzaria
+ * [1]: https://github.com/Med-GPT
+ * [2]: https://Med-GPT.github.io
+ * [3]: https://github.com/Med-GPT/Med-GPT/releases
+ * [4]: https://github.com/Med-GPT/Med-GPT/LICENSE
+ * 
+ * @name [**Med-GPT**][2]
+ * @copyright [**benzaria**][0] and [**Med-GPT**][1] Foundation
+ * @license [`CC BY-NC-ND 4.0`][4] 'Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International'
+ * @mixes *Medical* **GPT** + **RAG**
+ * @GPT `Generative Pre-trained Transformer` by OpenAI
+ * @RAG `Retrieval Augmented Generation` by benzaria
+ * @version [1.5.2-beta.2][3]
+ * @link [Home Page][2]
+ */
+let Hover_Me1 = 'Electron.App'
+
+/**
+ * jQuery JavaScript Library v3.7.1
+ * https://jquery.com/
+ *
+ * Copyright OpenJS Foundation and other contributors  
+ * Released under the MIT license  
+ * https://jquery.org/license
+ *
+ * Date: 2023-08-28T13:37Z
+ */
+let Hover_Me2 = 'Module'
