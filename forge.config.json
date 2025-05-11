@@ -1,0 +1,60 @@
+{
+    "$schema": "!!electron-builder.schema.json",
+    "appId": "com.benz.med-gpt",
+    "artifactName": "${name}-v${version}-${os}.${ext}",
+    "copyright": "Copyright © 2025 benzaria, Med-GPT Foundation",
+    "asar": false,
+    "removePackageScripts": true,
+    "removePackageKeywords": false,
+    "directories": {
+        "output": "dist"
+    },
+    "files": [
+        "!node_modules/**/*",
+        "!forge.config.json",
+        "!pnpm-lock.yaml",
+        "!replacer.js",
+        "!dist/**/*",
+        "!.npmrc",
+        "!*.ps1"
+    ],
+    "electronFuses": {
+        "onlyLoadAppFromAsar": false
+    },
+    "win": {
+        "target": [
+            {
+                "target": "nsis-web",
+                "arch": [
+                    "x64",
+                    "ia32",
+                    "arm64"
+                ]
+            }
+        ],
+        "icon": "assets/icon.ico"
+    },
+    "mac": {
+        "target": [
+            {
+                "target": "dmg",
+                "arch": [
+                    "universal"
+                ]
+            }
+        ],
+        "hardenedRuntime": true,
+        "gatekeeperAssess": false,
+        "icon": "assets/icon.icns",
+        "entitlements": "entitlements.mac.plist"
+    },
+    "nsisWeb": {
+        "allowToChangeInstallationDirectory": false,
+        "uninstallerIcon": "assets/icon.ico",
+        "installerIcon": "assets/icon.ico",
+        "buildUniversalInstaller": true,
+        "createStartMenuShortcut": true,
+        "createDesktopShortcut": true,
+        "oneClick": false
+    }
+}

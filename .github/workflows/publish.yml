@@ -1,0 +1,77 @@
+name: Package and Publish Med-GPT
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - publish
+
+defaults:
+  run:
+    shell: pwsh
+
+env:
+  PROD: true
+  GITHUB_CI: true
+  GH_TOKEN: ${{ secrets.MED_GPT_TOKEN }}
+
+jobs:
+  package:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - windows-latest
+          - macos-latest
+          # - ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Publish App Windows
+        if: ${{ matrix.os == 'windows-latest' }}
+        run: pnpm run forge:win
+
+      - name: Publish App MacOS
+        if: ${{ matrix.os == 'macos-latest' }}
+        run: pnpm run forge:mac
+
+      - name: Push Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Artifact-${{ matrix.os }}
+          path: dist
+
+  publish:
+    needs: package
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull Artifact Windows
+        uses: actions/download-artifact@v4
+        with:
+          name: Artifact-windows-latest
+          path: dist
+
+      - name: Pull Artifact MacOS
+        uses: actions/download-artifact@v4
+        with:
+          name: Artifact-macos-latest
+          path: dist
+
+      - name: Publish Artifacts
+        run: pwsh -nop helper.ps1 publish
